@@ -43,6 +43,8 @@ public class SplitBird : MonoBehaviour
 
     private void SpawnObjects()
     {
+        AudioManager.Instance.PlaySFX("Explosion");
+
         for (int i = 0; i < 3; i++)
         {
             Vector2 spawnPos = (Vector2)transform.position + new Vector2(Random.Range(0f, spawnRadius), Random.Range(-spawnRadius, spawnRadius));

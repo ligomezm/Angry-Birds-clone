@@ -17,6 +17,7 @@ public class Attackable : MonoBehaviour
             if (tag == "Enemy")
             {
                 gameManager.UpdateEnemyList(gameObject);
+                AudioManager.Instance.PlaySFX("Pop");
                 Destroy(gameObject);
                 //Instantiate(effect, transform.position, Quaternion.identity);
             }
@@ -29,6 +30,7 @@ public class Attackable : MonoBehaviour
         if (tag == "Enemy")
         {
             gameManager.UpdateEnemyList(gameObject);
+            AudioManager.Instance.PlaySFX("Pop");
             Destroy(gameObject);
         }
     }

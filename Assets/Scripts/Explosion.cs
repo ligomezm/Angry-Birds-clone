@@ -26,6 +26,7 @@ public class Explosion : MonoBehaviour
 
     void Explode()
     {
+        AudioManager.Instance.PlaySFX("Explosion");
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, fieldOfImpact, layerToHit);
 
         foreach (Collider2D obj in objects)
@@ -36,6 +37,7 @@ public class Explosion : MonoBehaviour
 
             if (obj.gameObject.tag == "Enemy")
             {
+                AudioManager.Instance.PlaySFX("Pop");
                 Destroy(obj);
             }
         }
