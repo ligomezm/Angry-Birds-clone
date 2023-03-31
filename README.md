@@ -4,7 +4,7 @@ This is a clone of the popular mobile game Angry Birds, with some extra function
 ### How to Play ###
 To play the game, simply select the bird you want to use from the bird selection UI, then tap the Play button (or click the mouse). Use the bird's special abilities to destroy all the enemies in the level and score as many points as possible. Bird must hit enemies to destroy them. Get more points also hitting the structure.
 
-Link to play -> https://play.unity.com/mg/other/angry-birds-clone-webgl 
+Link to play on browser -> https://play.unity.com/mg/other/angry-birds-clone-webgl 
 
 ### Functionality ###
 #### Bird Selection UI ####
