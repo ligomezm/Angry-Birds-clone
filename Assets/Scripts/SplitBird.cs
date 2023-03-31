@@ -22,7 +22,7 @@ public class SplitBird : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !slingshot.isBirdOnSlignshot && canSplit)
+        if (Input.GetMouseButtonDown(0) && !slingshot.isBirdOnSlignshot && canSplit && gameObject.tag == "Player")
         {
             SpawnObjects();
             rb = GetComponent<Rigidbody2D>();
@@ -43,7 +43,7 @@ public class SplitBird : MonoBehaviour
 
     private void SpawnObjects()
     {
-        AudioManager.Instance.PlaySFX("Explosion");
+        AudioManager.Instance.PlaySFX("Split");
 
         for (int i = 0; i < 3; i++)
         {
@@ -56,7 +56,7 @@ public class SplitBird : MonoBehaviour
 
             Rigidbody2D objRb = obj.GetComponent<Rigidbody2D>();
             objRb.AddForce(Random.insideUnitCircle * spawnForce * 3, ForceMode2D.Impulse);
-            obj.tag = "Player";
+            obj.tag = "PlayerInstance";
 
             Destroy(obj, 5f);
         }

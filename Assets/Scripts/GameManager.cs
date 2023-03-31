@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         if (enemies.Count == 0)
         {
-            AudioManager.Instance.PlaySFX("GameCompleted");
+            //AudioManager.Instance.PlaySFX("GameCompleted");
             Invoke("ActivateWinCanvas", delay);
         }
     }
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     {
         if (slingshot.lives < 0 && enemies.Count > 0)
         {
-            AudioManager.Instance.PlaySFX("GameOver");
+            //AudioManager.Instance.PlaySFX("GameOver");
             Invoke("ActivateGameOverCanvas", delay);
         }
     }

@@ -15,33 +15,4 @@ public class CharacterDatabase : ScriptableObject
             return characters.Length;
         }
     }
-
-    /*public Character GetCharacter(string name)
-    {
-        int index;
-
-        for (int i = 0; i < characters.Length; i++)
-        {
-            //if (character[i].GetType().GetProperty("characterName").GetValue(character[i], null).ToString() == name)
-            //{
-            //index = i;
-            //}
-        }
-        /*int index = 0;
-        GameObject characterPrefab;
-        foreach (Character bird in character)
-        {
-            if (bird.GetType().GetProperty("characterName").GetValue(bird, null).ToString() == name)
-            { 
-                characterPrefab = bird.
-            }
-        }*/
-
-      //  return character[index];
-    //}
-    
-    /*public Character GetCharacter(int index)
-    {
-        return character[index];
-    }*/
 }

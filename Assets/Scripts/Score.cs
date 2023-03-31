@@ -20,8 +20,6 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        //Add score per second. Check if necessary
-        //score += Time.deltaTime;
         scoreText.text = "Score: " + score.ToString("0");
     }
 }

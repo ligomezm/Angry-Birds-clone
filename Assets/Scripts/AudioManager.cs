@@ -7,20 +7,28 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    [SerializeField] private Sound[] musicSounds, sfxSounds;
+    [SerializeField] private AudioSource musicSource, sfxSource;
+    [SerializeField] private float defaultMusicVolume = 0.5f;
+    [SerializeField] private float defaultSFXVolume = 1f;
+
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        musicSource = GetComponent<AudioSource>();
+        sfxSource = gameObject.AddComponent<AudioSource>();
+
+        musicSource.volume = defaultMusicVolume;
+        sfxSource.volume = defaultSFXVolume;
     }
 
     private void Start()
@@ -35,12 +43,13 @@ public class AudioManager : MonoBehaviour
         if (sound == null)
         {
             Debug.Log("Sound not found");
+            return;
         }
         else
         {
             musicSource.clip = sound.audioClip;
             musicSource.Play();
-            Debug.Log("Playing sound");
+            
         }
     }
 
@@ -50,10 +59,12 @@ public class AudioManager : MonoBehaviour
 
         if (sound == null)
         {
-            Debug.Log("Sound not found");
+            Debug.Log("Sound not found" + name);
+            return;
         }
         else
         {
+            sfxSource.clip = sound.audioClip;
             sfxSource.PlayOneShot(sound.audioClip);
         }
     }
