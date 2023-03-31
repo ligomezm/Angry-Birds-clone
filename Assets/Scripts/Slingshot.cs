@@ -4,27 +4,25 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
-    public LineRenderer[] lineRenderers;
-    public Transform[] stripPositions;
-    public Transform center;
-    public Transform idlePosition;
-    public CharacterManager characterManager;
-    GameObject birdPrefab;
-    Rigidbody2D bird;
-    Collider2D birdCollider;
+    [SerializeField] private LineRenderer[] lineRenderers;
+    [SerializeField] private Transform[] stripPositions;
+    [SerializeField] private Transform center;
+    [SerializeField] private Transform idlePosition;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private float maxLength;
+    [SerializeField] private float bottomBoundary;
+    [SerializeField] private float birdPositionOffSet;
+    [SerializeField] private float force;
+
+    private Rigidbody2D bird;
+    private Collider2D birdCollider;
 
     public Vector3 currentPosition;
 
-    public float maxLength;
-    public float bottomBoundary;
-
-    bool isMouseDown;
+    private bool isMouseDown;
     public bool isBirdOnSlingshot;
-
-    public float birdPositionOffSet;
-    public float force;
-
     public int lives;
+
 
     private void Awake()
     {
@@ -53,11 +51,9 @@ public class Slingshot : MonoBehaviour
 
     public void CreateBird()
     {
-        if (lives > 0)
+        if (lives > 0 && gameManager.birdPrefab != null)
         {
-            birdPrefab = characterManager.birdPrefab;
-
-            bird = Instantiate(birdPrefab).GetComponent<Rigidbody2D>();
+            bird = Instantiate(gameManager.birdPrefab).GetComponent<Rigidbody2D>();
             birdCollider = bird.GetComponent<Collider2D>();
             birdCollider.enabled = false;
 
@@ -102,7 +98,7 @@ public class Slingshot : MonoBehaviour
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
         isBirdOnSlingshot = false;
         bird.isKinematic = false;
@@ -115,13 +111,13 @@ public class Slingshot : MonoBehaviour
         Invoke("CreateBird", 2);
     }
 
-    void ResetStrips()
+    private void ResetStrips()
     {
         currentPosition = idlePosition.position;
         SetStrips(currentPosition);
     }
 
-    void SetStrips(Vector3 position)
+    private void SetStrips(Vector3 position)
     {
         lineRenderers[0].SetPosition(1, position);
         lineRenderers[1].SetPosition(1, position);

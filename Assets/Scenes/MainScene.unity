@@ -978,6 +978,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 919876965}
   - {fileID: 257700215}
   - {fileID: 826167346}
   - {fileID: 2089558882}
@@ -1016,7 +1017,7 @@ Transform:
   - {fileID: 132458767}
   - {fileID: 1682552971}
   m_Father: {fileID: 232375415}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &290453818
 GameObject:
@@ -1069,6 +1070,7 @@ MonoBehaviour:
   winCanvas: {fileID: 2092601418}
   slingshot: {fileID: 1020458365}
   enemies: []
+  birdPrefab: {fileID: 0}
 --- !u!1 &292588522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,7 +2871,7 @@ Transform:
   - {fileID: 1274280134}
   - {fileID: 1887332043}
   m_Father: {fileID: 232375415}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &851558508 stripped
 GameObject:
@@ -3337,7 +3339,7 @@ GameObject:
   - component: {fileID: 919876965}
   - component: {fileID: 919876964}
   m_Layer: 0
-  m_Name: StructureItems_4
+  m_Name: SlingshotBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3402,13 +3404,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919876963}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.9, y: -4.6177, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 64.70446, y: -210.30966, z: 6.619064}
   m_LocalScale: {x: 0.5, y: 0.34615, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 232375415}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921193008
 GameObject:
@@ -3782,13 +3784,13 @@ MonoBehaviour:
   - {fileID: 1411384420}
   center: {fileID: 2022878528}
   idlePosition: {fileID: 1017361474}
-  characterManager: {fileID: 1810323010}
-  currentPosition: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 290453820}
   maxLength: 2
   bottomBoundary: -4.8
-  isBirdOnSlignshot: 0
   birdPositionOffSet: -0.4
   force: 8
+  currentPosition: {x: 0, y: 0, z: 0}
+  isBirdOnSlingshot: 0
   lives: 0
 --- !u!4 &1020458366
 Transform:
@@ -6453,7 +6455,7 @@ Transform:
   - {fileID: 910108844}
   - {fileID: 2052556830}
   m_Father: {fileID: 232375415}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092601415
 GameObject:
@@ -6809,7 +6811,7 @@ Transform:
   - {fileID: 1440882521}
   - {fileID: 1638027218}
   m_Father: {fileID: 232375415}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2496456019612792385
 PrefabInstance:

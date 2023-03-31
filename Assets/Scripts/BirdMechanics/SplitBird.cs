@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SplitBird : MonoBehaviour
 {
-    public GameObject prefab;
-    public float spawnRadius;
-    public float spawnScale;
-    public float spawnForce;
-    public float deactivateTime;
+    [SerializeField] private float spawnRadius;
+    [SerializeField] private float spawnScale;
+    [SerializeField] private float spawnForce;
+    [SerializeField] private float deactivateTime;
 
     private bool canSplit = true;
     private Rigidbody2D rb;
 
+    public GameObject prefab;
     public Slingshot slingshot;
 
     private void Start()

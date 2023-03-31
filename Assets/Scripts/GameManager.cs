@@ -5,17 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public CharacterManager characterManager;
-    public Canvas selectPlayerCanvas;
-    public Canvas UICanvas;
-    public Canvas gameOverCanvas;
-    public Canvas winCanvas;
+    [SerializeField] private CharacterManager characterManager;
+    [SerializeField] private Canvas selectPlayerCanvas;
+    [SerializeField] private Canvas UICanvas;
+    [SerializeField] private Canvas gameOverCanvas;
+    [SerializeField] private Canvas winCanvas;
+    [SerializeField] private Slingshot slingshot;
 
-    public Slingshot slingshot;
-
+    private float delay;
     public List<GameObject> enemies = new List<GameObject>();
-
-    float delay;
+    public GameObject birdPrefab;
 
     private void Awake()
     {
@@ -51,6 +50,7 @@ public class GameManager : MonoBehaviour
         { 
             selectPlayerCanvas.enabled = false;
             UICanvas.enabled = true;
+            birdPrefab = characterManager.birdPrefab;
             slingshot.CreateBird();
         }
     }

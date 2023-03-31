@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    public float fieldOfImpact;
-    public float force;
-    public LayerMask layerToHit;
-    public GameObject explosionEffect;
+    [SerializeField] private float fieldOfImpact;
+    [SerializeField] private float force;
+    [SerializeField] private LayerMask layerToHit;
+    [SerializeField] private GameObject explosionEffect;
     public Slingshot slingshot;
 
     private void Start()
@@ -24,7 +24,7 @@ public class Explosion : MonoBehaviour
     }
 
 
-    void Explode()
+    private void Explode()
     {
         AudioManager.Instance.PlaySFX("Explosion");
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, fieldOfImpact, layerToHit);

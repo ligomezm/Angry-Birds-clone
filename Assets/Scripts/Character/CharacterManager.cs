@@ -17,7 +17,6 @@ public class CharacterManager : MonoBehaviour
             Button button = transform.Find("Slot" + (index + 1)).GetChild(0).GetComponent<Button>();
             button.onClick.AddListener(() => CharacterSelected(characterDB.characters[index]));
         }
-
     }
 
     void CharacterSelected(Character character)
@@ -25,5 +24,4 @@ public class CharacterManager : MonoBehaviour
         birdPrefab = character.characterPrefab;
         selectedOptionName = character.characterName;
     }
-
 }
