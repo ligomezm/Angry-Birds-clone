@@ -22,7 +22,7 @@ public class SplitBird : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !slingshot.isBirdOnSlignshot && canSplit && gameObject.tag == "Player")
+        if (Input.GetMouseButtonDown(0) && !slingshot.isBirdOnSlingshot && canSplit && gameObject.tag == "Player")
         {
             SpawnObjects();
             rb = GetComponent<Rigidbody2D>();

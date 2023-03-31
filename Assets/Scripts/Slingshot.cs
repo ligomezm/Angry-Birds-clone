@@ -19,7 +19,7 @@ public class Slingshot : MonoBehaviour
     public float bottomBoundary;
 
     bool isMouseDown;
-    public bool isBirdOnSlignshot;
+    public bool isBirdOnSlingshot;
 
     public float birdPositionOffSet;
     public float force;
@@ -28,7 +28,7 @@ public class Slingshot : MonoBehaviour
 
     private void Awake()
     {
-        isBirdOnSlignshot = true;
+        isBirdOnSlingshot = true;
         lives = 3;
     }
 
@@ -40,6 +40,16 @@ public class Slingshot : MonoBehaviour
         lineRenderers[1].SetPosition(0, stripPositions[1].position);
     }
 
+    private void OnMouseDown()
+    {
+        isMouseDown = true;
+    }
+
+    private void OnMouseUp()
+    {
+        isMouseDown = false;
+        Shoot();
+    }
 
     public void CreateBird()
     {
@@ -52,7 +62,7 @@ public class Slingshot : MonoBehaviour
             birdCollider.enabled = false;
 
             bird.isKinematic = true;
-            isBirdOnSlignshot = true;
+            isBirdOnSlingshot = true;
             lives--;
         }
         else
@@ -90,24 +100,11 @@ public class Slingshot : MonoBehaviour
         {
             ResetStrips();
         }
-
-        
-    }
-
-    private void OnMouseDown()
-    {
-        isMouseDown = true;
-    }
-
-    private void OnMouseUp()
-    {
-        isMouseDown = false;
-        Shoot();
     }
 
     void Shoot()
     {
-        isBirdOnSlignshot = false;
+        isBirdOnSlingshot = false;
         bird.isKinematic = false;
         Vector3 birdForce = (currentPosition - center.position) * force * -1;
         bird.velocity = birdForce;

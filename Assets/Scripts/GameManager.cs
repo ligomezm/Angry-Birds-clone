@@ -49,9 +49,9 @@ public class GameManager : MonoBehaviour
     {
         if (characterManager.birdPrefab != null)
         { 
-            slingshot.CreateBird();
             selectPlayerCanvas.enabled = false;
             UICanvas.enabled = true;
+            slingshot.CreateBird();
         }
     }
 

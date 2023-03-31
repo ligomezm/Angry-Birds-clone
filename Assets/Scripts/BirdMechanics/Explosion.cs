@@ -17,7 +17,7 @@ public class Explosion : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !slingshot.isBirdOnSlignshot)
+        if (Input.GetMouseButtonDown(0) && !slingshot.isBirdOnSlingshot)
         {
             Explode();
         }
